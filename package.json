@@ -1,0 +1,22 @@
+{
+    "name": "@dbca/gov-vue3-components",
+    "version": "0.0.2",
+    "main": "dist/library.js",
+    "module": "dist/library.mjs",
+    "files": [
+      "dist/*"
+    ],
+    "type": "module",
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "peerDependencies": {
+        "vue": "^3.2"
+    },
+    "devDependencies": {
+        "@jridgewell/sourcemap-codec": "^1.4.14",
+        "rollup": "^3.17.2",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "rollup-plugin-vue": "^6.0.0"
+    }
+}
