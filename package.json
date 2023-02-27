@@ -1,6 +1,6 @@
 {
     "name": "@dbca/gov-vue3-components",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "license": "Apache-2.0",
     "main": "dist/library.js",
     "module": "dist/library.mjs",
