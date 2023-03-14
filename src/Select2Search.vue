@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
     <FormSection :label="'Search ' + label" :index="index">
         <div class="row form-group">
             <div class="col-md-3">
