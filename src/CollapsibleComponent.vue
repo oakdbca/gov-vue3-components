@@ -1,17 +1,17 @@
 <template>
     <div>
-        <div class="toggle_filters_wrapper">
-            <div data-bs-toggle="collapse" :data-bs-target="'#' + target_elem_id" :id="button_elem_id" class="toggle_filters_button collapsed d-flex align-items-center" @click="toggle_filters_button_clicked">
-                <div class="me-auto">{{ component_title }}</div>
+        <div class="toggle-filters-wrapper">
+            <div data-bs-toggle="collapse" :data-bs-target="'#' + targetElemId" :id="buttonElemId" class="toggle-filters-button collapsed d-flex align-items-center" @click="toggleFiltersButtonClicked">
+                <div class="me-auto">{{ componentTitle }}</div>
                 <div class="">
-                    <i :id="warning_icon_id" :title="warning_icon_title" class="fa-solid fa-exclamation-circle fa-2x filter_warning_icon"></i>
+                    <i :id="warningIconId" :title="warningIconTitle" class="fa-solid fa-exclamation-circle fa-2x filter-warning-icon"></i>
                 </div>
                 <div class="ml-2">
-                    <i :id="chevron_elem_id" class="rotate_icon fa-solid fa-chevron-right"></i>
+                    <i :id="chevronElemId" class="rotate-icon fa-solid fa-chevron-right"></i>
                 </div>
             </div>
 
-            <div class="collapse" :id="target_elem_id">
+            <div class="collapse" :id="targetElemId">
                 <slot></slot>
             </div>
         </div>
@@ -24,47 +24,47 @@ import { v4 as uuid } from 'uuid';
 export default {
     name:"CollapsibleComponent",
     props: {
-        component_title: {
+        componentTitle: {
             type: String,
             required: false,
             default: '',
         }
     },
     watch: {
-        filters_expanded: function(){
-            let chevron_icon = $('#' + this.chevron_elem_id)
-            if (this.filters_expanded){
-                chevron_icon.addClass('chev_rotated')
+        filtersExpanded: function(){
+            let chevronIcon = $('#' + this.chevronElemId)
+            if (this.filtersExpanded){
+                chevronIcon.addClass('chev-rotated')
             } else {
-                chevron_icon.removeClass('chev_rotated')
+                chevronIcon.removeClass('chev-rotated')
             }
         }
     },
     data:function () {
         return {
-            target_elem_id: 'target_elem_' + uuid(),
-            button_elem_id: 'button_elem_' + uuid(),
-            chevron_elem_id: 'chevron_elem_' + uuid(),
-            warning_icon_id: 'warning_elem_' + uuid(),
-            warning_icon_title: '',
-            display_icon: false,
-            filters_expanded: null,
+            targetElemId: 'target-elem-' + uuid(),
+            buttonElemId: 'button-elem-' + uuid(),
+            chevronElemId: 'chevron-elem-' + uuid(),
+            warningIconId: 'warning-elem-' + uuid(),
+            warningIconTitle: '',
+            displayIcon: false,
+            filtersExpanded: null,
         }
     },
     methods: {
-        toggle_filters_button_clicked: function(e){
+        toggleFiltersButtonClicked: function(e){
             // Bootstrap add a 'collapsed' class name to the element
-            let filters_expanded_when_clicked = $('#' + this.button_elem_id).hasClass('collapsed')
-            this.filters_expanded = !filters_expanded_when_clicked
+            let filtersExpandedWhenClicked = $('#' + this.buttonElemId).hasClass('collapsed')
+            this.filtersExpanded = !filtersExpandedWhenClicked
         },
-        show_warning_icon: function(show){
-            let warning_icon = $('#' + this.warning_icon_id)
+        showWarningIcon: function(show){
+            let warningIcon = $('#' + this.warningIconId)
             if (show){
-                warning_icon.css('opacity', 1)
-                this.warning_icon_title = 'filter(s) applied'
+                warningIcon.css('opacity', 1)
+                this.warningIconTitle = 'filter(s) applied'
             } else {
-                warning_icon.css('opacity', 0)
-                this.warning_icon_title = ''
+                warningIcon.css('opacity', 0)
+                this.warningIconTitle = ''
             }
         },
     },
@@ -77,22 +77,22 @@ export default {
 </script>
 
 <style scoped>
-.toggle_filters_wrapper {
+.toggle-filters-wrapper {
     background: #efefee;
     padding: 0.5em;
     display: grid;
 }
-.toggle_filters_button {
+.toggle-filters-button {
     cursor: pointer;
 }
-.filter_warning_icon {
+.filter-warning-icon {
     color: #ffc107;
     transition: 0.5s;
 }
-.rotate_icon {
+.rotate-icon {
     transition: 0.5s;
 }
-.chev_rotated {
+.chev-rotated {
     transform: rotate(90deg);
 }
 </style>
