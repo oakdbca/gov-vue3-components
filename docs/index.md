@@ -6,6 +6,8 @@ Repository of common vue3 components that can be imported into department projec
 
 $ npm install @dbca/gov-vue3-components
 
+Currently this component library requires bootstrap 5 and that the project is using webtemplate_dbca (for the chevron javascript)
+
 Then import and use the plugin in main.js:
 
 #### **`main.js`**
