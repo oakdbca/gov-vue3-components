@@ -76,7 +76,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
 .toggle_filters_wrapper {
     background: #efefee;
     padding: 0.5em;
