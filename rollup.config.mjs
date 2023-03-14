@@ -1,3 +1,5 @@
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import css from 'rollup-plugin-import-css';
 import vue from 'rollup-plugin-vue'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 
@@ -15,7 +17,7 @@ export default [
       }
     ],
     plugins: [
-      vue(), peerDepsExternal()
+      vue(), peerDepsExternal(), nodeResolve(), css()
     ]
   }
 ]
