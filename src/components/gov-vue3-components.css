@@ -1,0 +1,33 @@
+/* Collapsible Component */
+
+.collapsible-component .toggle-filters-wrapper {
+    background: #efefee;
+    padding: 0.5em;
+    display: grid;
+}
+.collapsible-component .toggle-filters-button {
+    cursor: pointer;
+}
+.collapsible-component .filter-warning-icon {
+    color: #ffc107;
+    transition: 0.5s;
+}
+.collapsible-component .rotate-icon {
+    transition: 0.5s;
+}
+.collapsible-component .chev-rotated {
+    transform: rotate(90deg);
+}
+
+/* Form Section */
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 0;
+}
+.form-section .section-header {
+    padding: 30px;
+}
+.form-section .show-hide-switch{
+    cursor: pointer;
+}

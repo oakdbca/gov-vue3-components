@@ -1,5 +1,5 @@
 <template>
-    <div class="card section-wrapper" :id="customId">
+    <div class="card form-section" :id="customId">
         <div class="card-header fw-bold h4 section-header">
             <div 
                 class="row show-hide-switch" 
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import 'gov-vue3-components.css';
 import { v4 as uuid } from 'uuid';
 
 export default {
@@ -73,15 +74,15 @@ export default {
 }
 </script>
 
-<style scoped>
-.section-header {
-    padding: 30px;
-}
-.section-wrapper {
+<style>
+.form-section {
     margin-bottom: 20px;
     padding: 0;
 }
-.show-hide-switch{
+.form-section .section-header {
+    padding: 30px;
+}
+.form-section .show-hide-switch{
     cursor: pointer;
 }
 </style>

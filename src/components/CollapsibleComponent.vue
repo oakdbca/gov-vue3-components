@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="collapsible-component">
         <div class="toggle-filters-wrapper">
             <div data-bs-toggle="collapse" :data-bs-target="'#' + targetElemId" :id="buttonElemId" class="toggle-filters-button collapsed d-flex align-items-center" @click="toggleFiltersButtonClicked">
                 <div class="me-auto">{{ componentTitle }}</div>
@@ -76,23 +76,23 @@ export default {
 }
 </script>
 
-<style scoped>
-.toggle-filters-wrapper {
+<style>
+.collapsible-component .toggle-filters-wrapper {
     background: #efefee;
     padding: 0.5em;
     display: grid;
 }
-.toggle-filters-button {
+.collapsible-component .toggle-filters-button {
     cursor: pointer;
 }
-.filter-warning-icon {
+.collapsible-component .filter-warning-icon {
     color: #ffc107;
     transition: 0.5s;
 }
-.rotate-icon {
+.collapsible-component .rotate-icon {
     transition: 0.5s;
 }
-.chev-rotated {
+.collapsible-component .chev-rotated {
     transform: rotate(90deg);
 }
 </style>

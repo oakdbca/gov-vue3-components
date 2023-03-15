@@ -1,7 +1,7 @@
-import CollapsibleComponent from './CollapsibleComponent.vue'
-import FormSection from './FormSection.vue'
-import Select2Search from './Select2Search.vue'
-import StatusPanel from './StatusPanel.vue'
+import CollapsibleComponent from './components/CollapsibleComponent.vue'
+import FormSection from './components/FormSection.vue'
+import Select2Search from './components/Select2Search.vue'
+import StatusPanel from './components/StatusPanel.vue'
 
 export default {
     CollapsibleComponent,
