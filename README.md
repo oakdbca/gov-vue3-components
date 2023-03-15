@@ -1,6 +1,8 @@
 # gov-vue-components
 Repository of common vue components that can be imported into department projects.
 
+See /docs folder for user documentation
+
 To publish to npm:
 
 npm login

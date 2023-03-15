@@ -10,7 +10,6 @@
                     <i :id="chevronElemId" class="rotate-icon fa-solid fa-chevron-right"></i>
                 </div>
             </div>
-
             <div class="collapse" :id="targetElemId">
                 <slot></slot>
             </div>

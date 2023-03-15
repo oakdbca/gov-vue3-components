@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import 'library.css';
 import { v4 as uuid } from 'uuid';
 
 export default {
