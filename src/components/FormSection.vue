@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import 'gov-vue3-components.css';
+import 'library.css';
 import { v4 as uuid } from 'uuid';
 
 export default {
