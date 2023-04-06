@@ -11,7 +11,7 @@ module.exports = {
                 collapsable: false,
                 items: [
                     { text: 'Status Panel', link: '/components/StatusPanel.md' },
-                    { text: 'Bootstrap Alert', link: '/components/BoostrapAlert.md' },
+                    { text: 'Bootstrap Alert', link: '/components/BootstrapAlert.md' },
                 ]
             }
         ]
