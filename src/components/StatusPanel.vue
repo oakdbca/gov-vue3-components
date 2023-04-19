@@ -7,7 +7,7 @@
             <div class="card-body card-collapse">
                 <div class="row">
                     <div class="col-sm-12">
-                        <strong>Status</strong><br/>
+                        <strong>Status</strong><br />
                         <template v-if="badgeClass">
                             <span class="badge" :class="badgeClass">{{ status }}</span>
                         </template>
@@ -32,7 +32,6 @@ export default {
         badgeClass: {
             required: false,
             type: String,
-            default: false,
         }
     },
 }
