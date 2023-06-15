@@ -8,6 +8,8 @@ import BootstrapButtonSpinner from './components/BootstrapButtonSpinner.vue'
 import BootstrapModal from './components/BootstrapModal.vue'
 import BootstrapSpinner from './components/BootstrapSpinner.vue'
 
+import ErrorRenderer from './components/ErrorRenderer.vue'
+
 export default {
     CollapsibleComponent,
     FormSection,
@@ -18,4 +20,6 @@ export default {
     BootstrapButtonSpinner,
     BootstrapModal,
     BootstrapSpinner,
+
+    ErrorRenderer,
 }
