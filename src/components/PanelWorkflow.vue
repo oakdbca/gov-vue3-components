@@ -26,7 +26,7 @@ import PanelStatus from './PanelStatus.vue';
 import PanelAssignable from './PanelAssignable.vue';
 
 export default {
-    name: 'OperationalPlan',
+    name: 'PanelWorkflow',
     components: {
         PanelStatus,
         PanelAssignable,
