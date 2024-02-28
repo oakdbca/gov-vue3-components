@@ -1,4 +1,12 @@
 {
+    "parser": "vue-eslint-parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/vue3-recommended",
+        "prettier",
+        "plugin:prettier/recommended"
+    ],
+    "plugins": ["vue", "prettier"],
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 2015

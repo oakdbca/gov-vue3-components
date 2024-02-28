@@ -24,7 +24,12 @@
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-vue": "^6.0.0",
         "vitepress": "^1.0.0-rc.44",
-        "vue": "^3.2.47"
+        "vue": "^3.2.47",
+        "eslint": "^8",
+        "eslint-config-prettier": "^9.0.0",
+        "eslint-plugin-prettier": "^5.0.1",
+        "prettier": "3.2.5"
+
     },
     "dependencies": {
         "uuid": "^9.0.0"
