@@ -32,9 +32,6 @@ Maintenance:
 
 To publish to npm:
 
-npm login
-npm publish --access=public
-
-To check it was published correctly:
-
-npm view @dbca/gov-vue3-components
+01. run 'npm login'
+02. run 'npm publish --access=public'
+03. To check it was published correctly, run 'npm view @dbca/gov-vue3-components'
