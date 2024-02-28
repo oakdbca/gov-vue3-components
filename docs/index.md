@@ -15,7 +15,7 @@ Then import and use the plugin in main.js:
     ...
 
     import GovVue3ComponentsPlugin from '@dbca/gov-vue3-components';
-    import '@dbca/gov-vue3-components/dist/library.css';
+    import '@dbca/gov-vue3-components/dist/assets/library-DJ5wR63R.css';
 
     ...
 
