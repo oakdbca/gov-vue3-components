@@ -13,6 +13,7 @@ module.exports = {
                     { text: 'Status Panel', link: '/components/StatusPanel.md' },
                     { text: 'Bootstrap Alert', link: '/components/BootstrapAlert.md' },
                     { text: 'Error Renderer', link: '/components/ErrorRenderer.md' },
+                    { text: 'Panel Assignable', link: '/components/PanelAssignable.md' },
                 ]
             }
         ]

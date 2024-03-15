@@ -1,6 +1,6 @@
 {
     "name": "@dbca/gov-vue3-components",
-    "version": "0.0.15",
+    "version": "0.0.16",
     "license": "Apache-2.0",
     "main": "dist/library.js",
     "module": "dist/library.mjs",
@@ -14,7 +14,7 @@
         "docs:preview": "vitepress preview docs"
     },
     "peerDependencies": {
-        "vue": "^3.2"
+        "vue": "^3.4"
     },
     "devDependencies": {
         "@jridgewell/sourcemap-codec": "^1.4.14",
@@ -24,7 +24,7 @@
         "rollup-plugin-peer-deps-external": "^2.2.4",
         "rollup-plugin-vue": "^6.0.0",
         "vitepress": "^1.0.0-rc.44",
-        "vue": "^3.2.47",
+        "vue": "^3.4",
         "eslint": "^8",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.1",
