@@ -16,7 +16,7 @@
             />
         </div>
         <div v-if="showActions" class="card-body">
-            <label for="assigned-to" class="form-label">Actions</label>
+            <label for="actions" class="form-label">Actions</label>
             <slot name="actions"
                 ><!-- Add any actions to the parent component --></slot
             >
