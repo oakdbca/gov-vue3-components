@@ -14,6 +14,7 @@ module.exports = {
                     { text: 'Bootstrap Alert', link: '/components/BootstrapAlert.md' },
                     { text: 'Error Renderer', link: '/components/ErrorRenderer.md' },
                     { text: 'Panel Assignable', link: '/components/PanelAssignable.md' },
+                    { text: 'Panel Status', link: '/components/PanelStatus.md' },
                 ]
             }
         ]

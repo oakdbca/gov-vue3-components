@@ -26,7 +26,7 @@ Maintenance:
 02. Run 'npm outdated' to see if anything needs updating
 03. Modify the package.json as required to update the version numbers
 04. Run 'npm run build'
-05. Increment the version number in the package.json file
+05. Increment the gov-vue3-components version number in the package.json file
 06. Do a Pull Request for the new version
 07. Once the PR is merged, follow the 'To publish to npm' instructions below to publish the new version to npm.
 

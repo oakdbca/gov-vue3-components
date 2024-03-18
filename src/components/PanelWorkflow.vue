@@ -15,7 +15,13 @@
                 @assign-to="assignTo"
             />
         </div>
-        <slot
+        <div v-if="showActions" class="card-body">
+            <label for="assigned-to" class="form-label">Actions</label>
+            <slot name="actions"
+                ><!-- Add any actions to the parent component --></slot
+            >
+        </div>
+        <slot name="default"
             ><!-- Add any custom workflow elements as card bodies to the parent component --></slot
         >
     </div>
@@ -72,9 +78,28 @@ export default {
             type: Number,
             required: true,
         },
+        showActions: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
     emits: ['assignToMe', 'assignTo'],
     created() {},
+    computed: {
+        isAssignedToMe() {
+            return this.assignedTo === this.requestUserId;
+        },
+        showActions() {
+            // If showActions is set to true, always show the actions
+            // regardless of assignableUsers. This allows the parent to override
+            // the default behavior when needed.
+            if(this.showActions === true){
+                return true;
+            }
+            return this.isAssignedToMe;
+        },
+    },
     methods: {
         assignTo(value) {
             this.$emit('assignTo', value);
