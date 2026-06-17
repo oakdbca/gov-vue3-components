@@ -11,99 +11,44 @@
                 :assign-to-api-url="assignToApiUrl"
                 :assigned-to="assignedTo"
                 :request-user-id="requestUserId"
-                @assign-to-me="$emit('assignToMe')"
+                @assign-to-me="emit('assignToMe')"
                 @assign-to="assignTo"
             />
         </div>
-        <div v-if="showActions" class="card-body">
+        <div v-if="shouldShowActions" class="card-body">
             <label for="actions" class="form-label">Actions</label>
-            <slot name="actions"
-                ><!-- Add any actions to the parent component --></slot
-            >
+            <slot name="actions"></slot>
         </div>
-        <slot name="default"
-            ><!-- Add any custom workflow elements as card bodies to the parent component --></slot
-        >
+        <slot></slot>
     </div>
 </template>
 
-<script>
-import PanelStatus from './PanelStatus.vue';
-import PanelAssignable from './PanelAssignable.vue';
+<script setup>
+import { computed } from 'vue'
+import PanelStatus from './PanelStatus.vue'
+import PanelAssignable from './PanelAssignable.vue'
 
-export default {
-    name: 'PanelWorkflow',
-    components: {
-        PanelStatus,
-        PanelAssignable,
-    },
-    props: {
-        status: {
-            type: String,
-            required: true,
-        },
-        statusDisplay: {
-            type: String,
-            required: false,
-            default: null,
-        },
-        contentType: {
-            type: Number,
-            required: true,
-        },
-        pk: {
-            type: Number,
-            required: true,
-        },
-        assignableUsers: {
-            type: Array,
-            required: false,
-            default: null,
-        },
-        assignToMeApiUrl: {
-            type: String,
-            required: false,
-            default: null,
-        },
-        assignToApiUrl: {
-            type: String,
-            required: false,
-            default: null,
-        },
-        assignedTo: {
-            type: Number,
-            required: true,
-        },
-        requestUserId: {
-            type: Number,
-            required: true,
-        },
-        showActions: {
-            type: Boolean,
-            required: false,
-            default: false,
-        },
-    },
-    emits: ['assignToMe', 'assignTo'],
-    created() {},
-    computed: {
-        isAssignedToMe() {
-            return this.assignedTo === this.requestUserId;
-        },
-        showActions() {
-            // If showActions is set to true, always show the actions
-            // regardless of assignableUsers. This allows the parent to override
-            // the default behavior when needed.
-            if(this.showActions === true){
-                return true;
-            }
-            return this.isAssignedToMe;
-        },
-    },
-    methods: {
-        assignTo(value) {
-            this.$emit('assignTo', value);
-        },
-    },
-};
+defineOptions({ name: 'PanelWorkflow' })
+
+const props = defineProps({
+    status:           { type: String,  required: true },
+    statusDisplay:    { type: String,  default: null },
+    contentType:      { type: Number,  required: true },
+    pk:               { type: Number,  required: true },
+    assignableUsers:  { type: Array,   default: null },
+    assignToMeApiUrl: { type: String,  default: null },
+    assignToApiUrl:   { type: String,  default: null },
+    assignedTo:       { type: Number,  required: true },
+    requestUserId:    { type: Number,  required: true },
+    showActions:      { type: Boolean, default: false },
+})
+
+const emit = defineEmits(['assignToMe', 'assignTo'])
+
+const isAssignedToMe    = computed(() => props.assignedTo === props.requestUserId)
+const shouldShowActions = computed(() => props.showActions || isAssignedToMe.value)
+
+function assignTo(value) {
+    emit('assignTo', value)
+}
 </script>

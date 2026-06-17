@@ -1,15 +1,7 @@
 <template>
     <template v-if="assignableUsers">
-        <select
-            id="assigned-to"
-            v-model="assignedToComputed"
-            class="form-select"
-        >
-            <option
-                v-for="user in assignableUsers"
-                :key="user.id"
-                :value="user.id"
-            >
+        <select id="assigned-to" v-model="assignedToComputed" class="form-select">
+            <option v-for="user in assignableUsers" :key="user.id" :value="user.id">
                 {{ user.name }}
             </option>
         </select>
@@ -21,30 +13,20 @@
     </template>
 </template>
 
-<script>
-export default {
-    name: 'SelectAssignable',
-    props: {
-        assignableUsers: {
-            type: Array,
-            required: false,
-            default: null,
-        },
-        assignedTo: {
-            type: Number,
-            required: true,
-        },
-    },
-    emits: ['assignTo'],
-    computed: {
-        assignedToComputed: {
-            get() {
-                return this.assignedTo;
-            },
-            set(value) {
-                this.$emit('assignTo', value);
-            },
-        },
-    },
-};
+<script setup>
+import { computed } from 'vue'
+
+defineOptions({ name: 'SelectAssignable' })
+
+const props = defineProps({
+    assignableUsers: { type: Array,  default: null },
+    assignedTo:      { type: Number, required: true },
+})
+
+const emit = defineEmits(['assignTo'])
+
+const assignedToComputed = computed({
+    get: () => props.assignedTo,
+    set: (value) => emit('assignTo', value),
+})
 </script>

@@ -1,21 +1,18 @@
 <template>
-    <button disabled>
-        <div class="spinner-border spinner-border-sm text-light" role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
+    <button :disabled="isLoading">
+        <template v-if="isLoading">
+            <div class="spinner-border spinner-border-sm text-light" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </template>
+        <slot v-else></slot>
     </button>
 </template>
 
-<script>
+<script setup>
+defineOptions({ name: 'BootstrapButtonSpinner' })
 
-export default {
-    name:'BootstrapButtonSpinner',
-    props:{
-        isLoading:{
-            default:function () {
-                return false;
-            }
-        }
-    }
-}
+defineProps({
+    isLoading: { type: Boolean, default: false },
+})
 </script>

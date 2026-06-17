@@ -7,84 +7,46 @@
                 </label>
             </div>
             <div class="col-md-5">
-                <select
-                :id="index"
-                :name="index"
-                :ref="index"
-                class="form-control"
-            />
+                <select :id="index" :name="index" class="form-control" />
             </div>
         </div>
     </FormSection>
 </template>
 
-<script>
-import { v4 as uuid } from 'uuid'
+<script setup>
+import { onMounted } from 'vue'
 import FormSection from './FormSection.vue'
 
-export default {
-    name: 'Select2Search',
-    props: {
-        label: {
-            type: String,
-            required: true,
-        },
-        lookupApiEndpoint: {
-            type: String,
-            required: true,
-        },
-        redirectPath: {
-            type: String,
-            required: true,
-        },
-        theme: {
-            type: String,
-            default: 'bootstrap-5',
-        },
-    },
-    components: {
-        FormSection,
-    },
-    data:function () {
-        return {
-            email_user: null,
-            uuid: uuid(),
-            index: 'search-' + this.label.toLowerCase().replace(' ', '-'),
-        }
-    },
-    methods: {
-        initialiseLookup: function(){
-            let vm = this;
-            $(`#${vm.index}`).select2({
-                minimumInputLength: 2,
-                'theme': vm.theme,
-                allowClear: true,
-                placeholder:'Select ' + vm.label,
-                ajax: {
-                    url: vm.lookupApiEndpoint,
-                    dataType: 'json',
-                    data: function(params) {
-                        console.log(params)
-                        var query = {
-                            term: params.term,
-                            type: 'public',
-                        }
-                        return query;
-                    },
-                },
-            }).
-            on('select2:open', function (e) {
-                const searchField = $(`[aria-controls='select2-${vm.index}-results']`)
-                searchField[0].focus();
-            }).
-            on('select2:select', function (e) {
-                var selected = $(e.currentTarget);
-                window.location = vm.redirectPath + selected.val();
-            });
-        },
-    },
-    mounted: function () {
-        this.initialiseLookup();
-    },
-}
+defineOptions({ name: 'Select2Search' })
+
+const props = defineProps({
+    label:             { type: String, required: true },
+    lookupApiEndpoint: { type: String, required: true },
+    redirectPath:      { type: String, required: true },
+    theme:             { type: String, default: 'bootstrap-5' },
+})
+
+// Requires jQuery and Select2 available as globals (peer dependencies)
+const index = `search-${props.label.toLowerCase().replace(/ /g, '-')}`
+
+onMounted(() => {
+    $(`#${index}`)
+        .select2({
+            minimumInputLength: 2,
+            theme: props.theme,
+            allowClear: true,
+            placeholder: 'Select ' + props.label,
+            ajax: {
+                url: props.lookupApiEndpoint,
+                dataType: 'json',
+                data: (params) => ({ term: params.term, type: 'public' }),
+            },
+        })
+        .on('select2:open', () => {
+            $(`[aria-controls='select2-${index}-results']`)[0]?.focus()
+        })
+        .on('select2:select', (e) => {
+            window.location = props.redirectPath + $(e.currentTarget).val()
+        })
+})
 </script>
