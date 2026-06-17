@@ -4,6 +4,12 @@
     "license": "Apache-2.0",
     "main": "dist/library.js",
     "module": "dist/library.mjs",
+    "exports": {
+        ".": {
+            "import": "./dist/library.mjs",
+            "require": "./dist/library.js"
+        }
+    },
     "files": [
         "dist/*"
     ],
@@ -14,7 +20,13 @@
         "docs:preview": "vitepress preview docs"
     },
     "peerDependencies": {
-        "vue": "^3.5"
+        "vue": "^3.5",
+        "jquery": ">=1.8.0",
+        "select2": ">=4.0.0"
+    },
+    "peerDependenciesMeta": {
+        "jquery": { "optional": true },
+        "select2": { "optional": true }
     },
     "devDependencies": {
         "@jridgewell/sourcemap-codec": "^1.5.5",
@@ -30,8 +42,5 @@
         "vitepress": "^1.6.4",
         "vue": "^3.5"
     },
-    "dependencies": {
-        "nvm": "^0.0.4",
-        "uuid": "^14.0.0"
-    }
+    "dependencies": {}
 }
